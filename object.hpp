@@ -1,38 +1,26 @@
-#pragma once
+// #pragma once
 
-#include <vector>
+// #include "component.hpp"
 
-#include "component.hpp"
+// #include <vector>
 
-namespace rpg
-{
-    class Object
-    {
+// namespace rpg
+// {
 
-    private:
-        std::vector<IComponent*> m_components;
+//     class Object
+//     {
+//     private:
+//         std::vector<IComponent *> m_components;
 
-    public:
-        void Update()
-        {
-            for (auto component : m_components)
-            {
-                component->Update();
-            }
-        }
+//     public:
+//         void Update();
 
-        void Render()
-        {
-            for (auto component : m_components)
-            {
-                component->Render();
-            }
-        }
+//         void Render();
 
-        void AddComponent(IComponent& component)
-        {
-            m_components.push_back(&component);
-            component.Begin();
-        }
-    };
-} // namespace rpg
+//         template <typename T = IComponent>
+//         T AddComponent();
+
+//         template <typename T>
+//         T &GetComponent();
+//     };
+// } // namespace rpg

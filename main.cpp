@@ -3,9 +3,10 @@
 
 #include <raylib.h>
 
+// #include "object_manager.hpp"
 #include "constants.hpp"
-#include "spritesheet.hpp"
-#include "sprite.hpp"
+// #include "spritesheet.hpp"
+// #include "sprite.hpp"
 
 // Renders the main rendering texture to the screen
 // Used in main render loop, after texture mode render
@@ -44,11 +45,11 @@ int main()
 
     RenderTexture2D renderTexture{LoadRenderTexture(screenWidth, screenHeight)};
 
-    rpg::Spritesheet spritesheetA{"assets/tilesetA.png"};
-    rpg::Spritesheet spritesheetB{"assets/tilesetB.png"};
+    //rpg::Spritesheet spritesheetA{"assets/tilesetA.png"};
+    //rpg::Spritesheet spritesheetB{"assets/tilesetB.png"};
 
-    rpg::Sprite mySprite{spritesheetA, 64, 128, 16, 16, Vector2{0, 0}};
-    rpg::Sprite mySprite2{spritesheetA, 64, 128, 16, 16, Vector2{8, 8}};
+    //rpg::Sprite mySprite{spritesheetA, 64, 128, 16, 16, Vector2{0, 0}};
+    //rpg::Sprite mySprite2{spritesheetA, 64, 128, 16, 16, Vector2{8, 8}};
 
     SetTargetFPS(constants::targetFps);
     // END SETUP -------------------------------------------------------------------------------------
@@ -75,8 +76,8 @@ int main()
 
         ClearBackground(GRAY);
 
-        mySprite.DrawSprite(screenWidth / 2, screenHeight / 2);
-        mySprite2.DrawSprite(screenWidth / 2 + 100, screenHeight / 2);
+        //mySprite.DrawSprite(screenWidth / 2, screenHeight / 2);
+        //mySprite2.DrawSprite(screenWidth / 2 + 100, screenHeight / 2);
 
         EndTextureMode();
 

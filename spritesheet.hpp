@@ -10,12 +10,9 @@ namespace rpg
         Texture2D spriteSheet2DTexture;
 
     public:
-        Spritesheet(const char *fileStr) : spriteSheet2DTexture{LoadTexture(fileStr)} {}
-        ~Spritesheet() { UnloadTexture(spriteSheet2DTexture); }
+        Spritesheet(const char *fileStr);
+        ~Spritesheet();
 
-        const Texture2D &GetTexture()
-        {
-            return spriteSheet2DTexture;
-        }
+        const Texture2D &GetTexture();
     };
 } // namespace rpg
