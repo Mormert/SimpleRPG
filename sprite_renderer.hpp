@@ -13,16 +13,18 @@ namespace rpg
     {
 
     private:
-        std::vector<Sprite> m_sprites;
+        std::vector<Sprite *> m_sprites;
 
         // A SpriteRenderer component requieres a Transform component
         // And it should of course be from the same object
         rpg::Transform &m_transform;
 
     public:
-        SpriteRenderer(Transform &transform);
+        SpriteRenderer(Transform *transform);
 
-        SpriteRenderer &AddSprite(Sprite sprite);
+        SpriteRenderer &AddSprite(Sprite *sprite);
+
+        ~SpriteRenderer();
 
         virtual void Render() override;
     };

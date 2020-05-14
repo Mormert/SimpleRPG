@@ -13,6 +13,10 @@ namespace rpg
         float rotation;
         int x;
         int y;
+
+        Transform();
+
+        Transform(int x, int y, float scale = 1.0f, float rotation = 0.0f);
     };
 
 } // namespace rpg

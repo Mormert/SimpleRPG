@@ -53,7 +53,13 @@ int main()
     rpg::Object myObject;
 
     myObject
-        .AddComponent(new rpg::TestComponent{});
+        .AddComponent(new rpg::Transform{400, 400});
+    myObject
+        .AddComponent(new rpg::SpriteRenderer{myObject.GetComponent<rpg::Transform>()});
+
+    myObject
+        .GetComponent<rpg::SpriteRenderer>()
+        ->AddSprite(new rpg::Sprite{spritesheet, 64, 128, 16, 16});
 
     SetTargetFPS(constants::targetFps);
     // END SETUP -------------------------------------------------------------------------------------

@@ -42,6 +42,8 @@ add_executable(${PROJECT_NAME}
     spritesheet.cpp
     sprite.cpp
     object_manager.cpp
+    sprite_renderer.cpp
+    transform.cpp
 )
 
 #set(raylib_VERBOSE 1)

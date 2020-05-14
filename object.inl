@@ -6,6 +6,8 @@
 
 namespace rpg
 {
+    // Note that Components should be allocated by the "new" keyword
+    // They should not consist within local scopes
     template <typename T>
     Object &Object::AddComponent(T *component)
     {
