@@ -35,19 +35,16 @@ endif()
 
 # This is the main part:
 
-
-# add_executable(spritesheet spritesheet.cpp)
-# add_executable(sprite sprite.cpp)
-# add_executable(object object.cpp)
-# add_executable(object_manager object_manager.cpp)
-# add_executable(component component.cpp)
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME}
+    main.cpp
+    object.cpp
+    component.cpp
+    spritesheet.cpp
+    sprite.cpp
+    object_manager.cpp
+)
 
 #set(raylib_VERBOSE 1)
 
-# target_include_directories(spritesheet PRIVATE ${raylib_INCLUDE_DIRS})
-# target_link_libraries(spritesheet PRIVATE ${raylib_LIBRARIES})
-
 target_include_directories(${PROJECT_NAME} PRIVATE ${raylib_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${raylib_LIBRARIES})
-

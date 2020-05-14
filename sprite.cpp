@@ -1,36 +1,39 @@
-// #include "sprite.hpp"
+#include "sprite.hpp"
 
-// namespace rpg
-// {
+#include <raylib.h>
 
-//     // Sprite::Sprite(Object &callingObject) : IComponent::IComponent{callingObject}, m_spriteRectangle{Rectangle{}}, m_spriteSheetTexture{Texture2D{}}
-//     // {
-//     // }
+#include <iostream>
 
-//     void Sprite::DrawSprite(int x, int y, float rotation = 0.0f, Color color = WHITE)
-//     {
-//         Rectangle destinationRectangle{static_cast<float>(x), static_cast<float>(y),
-//                                        m_spriteRectangle.width, m_spriteRectangle.height};
+namespace rpg
+{
 
-//         DrawTexturePro(m_spriteSheetTexture, m_spriteRectangle, destinationRectangle,
-//                        m_spriteOrigin, rotation, color);
-//     }
+    Sprite::Sprite(Spritesheet &spriteSheet, float x, float y,
+                   float width, float heigth,
+                   Vector2 origin) : m_spriteRectangle{x, y, width, heigth},
+                                     m_spriteSheetTexture{spriteSheet.GetTexture()},
+                                     m_spriteOrigin{origin}
+    {
+    }
 
-//     void Sprite::SetOrigin(Vector2 newOrigin)
-//     {
-//         m_spriteOrigin = newOrigin;
-//     }
+    // TODO : Add scale parameter
+    void Sprite::DrawSprite(int x, int y, float rotation, Color color)
+    {
+        Rectangle destinationRectangle{static_cast<float>(x), static_cast<float>(y),
+                                       m_spriteRectangle.width, m_spriteRectangle.height};
 
-//     void Sprite::Begin()
-//     {
-//     }
+        DrawTexturePro(m_spriteSheetTexture, m_spriteRectangle, destinationRectangle,
+                       m_spriteOrigin, rotation, color);
+    }
 
-//     void Sprite::Render()
-//     {
-//     }
+    void Sprite::SetOrigin(Vector2 newOrigin)
+    {
+        m_spriteOrigin = newOrigin;
+    }
 
-//     void Sprite::Update()
-//     {
-//     }
+    Sprite::~Sprite()
+    {
+        std::cout << "Calling ~Sprite()" << std::endl;
+    }
 
-// } // namespace rpg
+
+} // namespace rpg

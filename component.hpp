@@ -1,19 +1,18 @@
-// #pragma once
+#ifndef COMPONENT_HPP
+#define COMPONENT_HPP
 
-// namespace rpg
-// {
+namespace rpg
+{
 
-//     class IComponent
-//     {
-//     private:
-//         //Object m_object; // Reference to the object holding this component
-//     public:
-//        // Object &GetObject();
+    class Component
+    {
+    public:
+        virtual void Begin();
+        virtual void Update();
+        virtual void Render();
 
-//         //IComponent(Object &callingObject);
+        virtual ~Component();
+    };
+} // namespace rpg
 
-//         virtual void Begin() = 0;
-//         virtual void Update() = 0;
-//         virtual void Render() = 0;
-//     };
-// } // namespace rpg
+#endif

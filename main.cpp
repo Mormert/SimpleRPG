@@ -3,10 +3,13 @@
 
 #include <raylib.h>
 
-// #include "object_manager.hpp"
+#include "object_manager.hpp"
 #include "constants.hpp"
-// #include "spritesheet.hpp"
-// #include "sprite.hpp"
+#include "spritesheet.hpp"
+#include "object.hpp"
+
+#include "component.hpp"
+#include "components_list"
 
 // Renders the main rendering texture to the screen
 // Used in main render loop, after texture mode render
@@ -45,11 +48,12 @@ int main()
 
     RenderTexture2D renderTexture{LoadRenderTexture(screenWidth, screenHeight)};
 
-    //rpg::Spritesheet spritesheetA{"assets/tilesetA.png"};
-    //rpg::Spritesheet spritesheetB{"assets/tilesetB.png"};
+    rpg::Spritesheet spritesheet{"assets/tilesetA.png"};
 
-    //rpg::Sprite mySprite{spritesheetA, 64, 128, 16, 16, Vector2{0, 0}};
-    //rpg::Sprite mySprite2{spritesheetA, 64, 128, 16, 16, Vector2{8, 8}};
+    rpg::Object myObject;
+
+    myObject
+        .AddComponent(new rpg::TestComponent{});
 
     SetTargetFPS(constants::targetFps);
     // END SETUP -------------------------------------------------------------------------------------
@@ -69,12 +73,21 @@ int main()
 
         screenZoomScroll += GetMouseWheelMove() * constants::scrollSpeed;
         screenZoomScroll = std::clamp(screenZoomScroll, 0.0f, 1.0f);
+
+        // OBJECT TEST UPDATE >>
+        myObject.Update();
+        // <<
+
         // END UPDATE ---------------------------------------------------------------------------------
 
         // BEGIN RENDERING TO MAIN RENDER TEXTURE -----------------------------------------------------
         BeginTextureMode(renderTexture);
 
         ClearBackground(GRAY);
+
+        // OBJECT TEST RENDER >>
+        myObject.Render();
+        // <<
 
         //mySprite.DrawSprite(screenWidth / 2, screenHeight / 2);
         //mySprite2.DrawSprite(screenWidth / 2 + 100, screenHeight / 2);

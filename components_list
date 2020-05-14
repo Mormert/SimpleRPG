@@ -1,0 +1,2 @@
+#include "testcomponent.hpp"
+#include "sprite.hpp"

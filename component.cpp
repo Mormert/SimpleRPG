@@ -1,11 +1,16 @@
-// #include "component.hpp"
+#include "component.hpp"
 
-// namespace rpg
-// {
+#include <iostream>
 
-//     //Object &IComponent::GetObject() { return m_object; }
+namespace rpg
+{
 
-//     //IComponent::IComponent(Object &callingObject)
-//     //    : m_object{callingObject} {}
+    void Component::Begin(){};
+    void Component::Update(){};
+    void Component::Render(){};
 
-// } // namespace rpg
+    Component::~Component()
+    {
+        std::cout << "Calling ~IComponent()" << std::endl;
+    }
+} // namespace rpg

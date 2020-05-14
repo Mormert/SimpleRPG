@@ -1,46 +1,32 @@
-// #include "object.hpp"
+#include "object.hpp"
 
-// namespace rpg
-// {
+namespace rpg
+{
+    // Called in update pass
+    void Object::Update()
+    {
+        for (auto component : m_components)
+        {
+            component->Update();
+        }
+    }
 
-//     void Object::Update()
-//     {
-//         for (auto component : m_components)
-//         {
-//             component->Update();
-//         }
-//     }
+    // Called in render pass
+    void Object::Render()
+    {
+        for (auto component : m_components)
+        {
+            component->Render();
+        }
+    }
 
-//     void Object::Render()
-//     {
-//         for (auto component : m_components)
-//         {
-//             component->Render();
-//         }
-//     }
+    // Frees all components
+    Object::~Object()
+    {
+        for (auto component : m_components)
+        {
+            delete component;
+        }
+    }
 
-//     template <typename T>
-//     T Object::AddComponent()
-//     {
-//         IComponent newComponent = new T{*this};
-
-//         m_components.push_back(&newComponent);
-//         newComponent.Begin();
-
-//         return newComponent;
-//     }
-
-//     template <typename T>
-//     T &Object::GetComponent()
-//     {
-//         for (auto component : m_components)
-//         {
-//             if (typeid(component) == typeid(T))
-//             {
-//                 return component;
-//             }
-//         }
-//         return nullptr;
-//     }
-
-// } // namespace rpg
+} // namespace rpg

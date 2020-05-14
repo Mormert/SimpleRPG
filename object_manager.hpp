@@ -1,17 +1,17 @@
-// #pragma once
+#pragma once
 
-// #include <vector>
+#include <vector>
 
-// #include "object.hpp"
+#include "object.hpp"
 
-// namespace rpg
-// {
-//     class ObjectManager
-//     {
+namespace rpg
+{
+    class ObjectManager
+    {
 
-//     private:
-//         std::vector<Object> m_objectList;
+    private:
+        std::vector<Object> m_objectList;
 
-//     public:
-//     };
-// } // namespace rpg
+    public:
+    };
+} // namespace rpg
