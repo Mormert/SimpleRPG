@@ -10,8 +10,8 @@ namespace rpg
         AddComponent(new rpg::Transform{400, 400});
         AddComponent(new rpg::SpriteRenderer{GetComponent<rpg::Transform>()});
 
-        const Texture2D *texture = rpg::Spritesheet::GetTexture("assets/tilesetA.png");
-        GetComponent<rpg::SpriteRenderer>()->AddSprite(new rpg::Sprite{*texture, 64, 128, 16, 16});
+        GetComponent<rpg::SpriteRenderer>()->AddSprite(new rpg::Sprite{
+            rpg::Spritesheet::GetTexture("assets/tilesetA.png"), 64, 128, 16, 16});
     }
 
 } // namespace rpg

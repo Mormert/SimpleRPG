@@ -6,20 +6,20 @@
 
 namespace rpg
 {
-    std::map<std::string, Texture2D *> Spritesheet::map;
+    std::map<std::string, Texture2D> Spritesheet::map;
 
     void Spritesheet::AddTexture(std::string textureFileName)
     {
         if (!map.count(textureFileName)) // Does the map not already contain the texture?
         {
-            Texture2D *texturePtr = new Texture2D{LoadTexture(textureFileName.c_str())};
-            map.insert(std::pair<std::string, Texture2D *>(textureFileName, texturePtr));
+            Texture2D texture{LoadTexture(textureFileName.c_str())};
+            map.insert(std::pair<std::string, Texture2D>(textureFileName, texture));
         }
     }
 
-    const Texture2D *Spritesheet::GetTexture(std::string textureName)
+    const Texture2D &Spritesheet::GetTexture(std::string textureName)
     {
-        std::cout << "Getting texture with id: " << map.at(textureName)->id << '\n';
+        std::cout << "Getting texture with id: " << map.at(textureName).id << '\n';
         return map.at(textureName);
     }
 
@@ -27,8 +27,7 @@ namespace rpg
     {
         for (auto &x : map)
         {
-            UnloadTexture(*x.second);
-            delete x.second;
+            UnloadTexture(x.second);
         }
     }
 

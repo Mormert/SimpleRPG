@@ -11,7 +11,7 @@ namespace rpg
     class Spritesheet
     {
     private:
-        static std::map<std::string, Texture2D *> map;
+        static std::map<std::string, Texture2D> map;
         //Texture2D spriteSheet2DTexture;
 
     public:
@@ -20,7 +20,7 @@ namespace rpg
 
         static void AddTexture(std::string textureFileName);
 
-        static const Texture2D *GetTexture(std::string textureName);
+        static const Texture2D &GetTexture(std::string textureName);
 
         static void UnloadSpritesheet();
     };
