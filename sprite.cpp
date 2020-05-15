@@ -7,12 +7,14 @@
 namespace rpg
 {
 
-    Sprite::Sprite(Spritesheet &spriteSheet, float x, float y,
+    Sprite::Sprite(const Texture2D& texture, float x, float y,
                    float width, float heigth,
                    Vector2 origin) : m_spriteRectangle{x, y, width, heigth},
-                                     m_spriteSheetTexture{spriteSheet.GetTexture()},
+                                     m_spriteSheetTexture{texture},
                                      m_spriteOrigin{origin}
     {
+        std::cout << "creating sprite with texture id: " << texture.id << std::endl;
+        std::cout << "creating sprite with texture id: " << m_spriteSheetTexture.id << std::endl;
     }
 
     // TODO : Add scale parameter
@@ -20,6 +22,8 @@ namespace rpg
     {
         Rectangle destinationRectangle{static_cast<float>(x), static_cast<float>(y),
                                        m_spriteRectangle.width, m_spriteRectangle.height};
+
+        std::cout << "rendering sprite with texture id " << m_spriteSheetTexture.id << std::endl;
 
         DrawTexturePro(m_spriteSheetTexture, m_spriteRectangle, destinationRectangle,
                        m_spriteOrigin, rotation, color);
@@ -34,6 +38,5 @@ namespace rpg
     {
         std::cout << "Calling ~Sprite()" << std::endl;
     }
-
 
 } // namespace rpg

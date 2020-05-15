@@ -8,6 +8,8 @@
 #include "spritesheet.hpp"
 #include "object.hpp"
 
+#include "testobject.hpp"
+
 #include "component.hpp"
 #include "components_list"
 
@@ -48,21 +50,15 @@ int main()
 
     RenderTexture2D renderTexture{LoadRenderTexture(screenWidth, screenHeight)};
 
-    rpg::Spritesheet spritesheet{"assets/tilesetA.png"};
+    rpg::Spritesheet::AddTexture("assets/tilesetA.png");
+    rpg::Spritesheet::AddTexture("assets/tilesetB.png");
 
-    rpg::Object myObject;
+    // END SETUP -------------------------------------------------------------------------------------
 
-    myObject
-        .AddComponent(new rpg::Transform{400, 400});
-    myObject
-        .AddComponent(new rpg::SpriteRenderer{myObject.GetComponent<rpg::Transform>()});
-
-    myObject
-        .GetComponent<rpg::SpriteRenderer>()
-        ->AddSprite(new rpg::Sprite{spritesheet, 64, 128, 16, 16});
+    rpg::TestObject myTestObject;
 
     SetTargetFPS(constants::targetFps);
-    // END SETUP -------------------------------------------------------------------------------------
+    
 
     // GAME LOOP >>
     while (!WindowShouldClose()) // Detect window close button or ESC key
@@ -81,7 +77,7 @@ int main()
         screenZoomScroll = std::clamp(screenZoomScroll, 0.0f, 1.0f);
 
         // OBJECT TEST UPDATE >>
-        myObject.Update();
+        myTestObject.Update();
         // <<
 
         // END UPDATE ---------------------------------------------------------------------------------
@@ -92,7 +88,7 @@ int main()
         ClearBackground(GRAY);
 
         // OBJECT TEST RENDER >>
-        myObject.Render();
+        myTestObject.Render();
         // <<
 
         //mySprite.DrawSprite(screenWidth / 2, screenHeight / 2);
@@ -118,6 +114,9 @@ int main()
     } // GAME LOOP END <<
 
     // DE-INITIALIZATION-------------------------------------------------------------------------------
+
+    rpg::Spritesheet::UnloadSpritesheet();
+
     CloseWindow();
     // END DE-INITIALIZATION---------------------------------------------------------------------------
 

@@ -3,12 +3,11 @@
 
 #include "component.hpp"
 
-#include "components_list"
-
 #include <vector>
 
 namespace rpg
 {
+    // Base class for all objects
     class Object
     {
     private:
@@ -22,7 +21,7 @@ namespace rpg
         void Render();
 
         // Deletes all components on destructor
-        ~Object();
+        virtual ~Object();
 
         // Example: rpg::Object myObject;
         // myObject.AddComponent(new rpg::TestComponent{});

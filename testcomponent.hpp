@@ -15,10 +15,10 @@ namespace rpg
         int myInt{0};
 
     public:
-        virtual void Begin() override
-        {
-            std::cout << "Calling Begin()" << std::endl;
-        }
+        // virtual void Begin() override
+        // {
+        //     std::cout << "Calling Begin()" << std::endl;
+        // }
         virtual void Update() override
         {
             std::cout << "Calling Update()" << std::endl;
