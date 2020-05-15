@@ -10,8 +10,19 @@ namespace rpg
     {
 
     private:
-        std::vector<Object> m_objectList;
+        std::vector<Object *> m_objects;
 
     public:
+
+        void Update();
+
+        void Render();
+
+        void AddObject(Object *object);
+
+        void RemoveObject(Object *object);
+
+        ~ObjectManager();
+
     };
 } // namespace rpg

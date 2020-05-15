@@ -55,10 +55,13 @@ int main()
 
     // END SETUP -------------------------------------------------------------------------------------
 
-    rpg::TestObject myTestObject;
+    rpg::ObjectManager objectManager;
+
+    objectManager.AddObject(new rpg::TestObject{});
+
+    //rpg::TestObject myTestObject;
 
     SetTargetFPS(constants::targetFps);
-    
 
     // GAME LOOP >>
     while (!WindowShouldClose()) // Detect window close button or ESC key
@@ -77,7 +80,7 @@ int main()
         screenZoomScroll = std::clamp(screenZoomScroll, 0.0f, 1.0f);
 
         // OBJECT TEST UPDATE >>
-        myTestObject.Update();
+        objectManager.Update();
         // <<
 
         // END UPDATE ---------------------------------------------------------------------------------
@@ -88,7 +91,7 @@ int main()
         ClearBackground(GRAY);
 
         // OBJECT TEST RENDER >>
-        myTestObject.Render();
+        objectManager.Render();
         // <<
 
         //mySprite.DrawSprite(screenWidth / 2, screenHeight / 2);

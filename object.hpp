@@ -14,10 +14,10 @@ namespace rpg
         std::vector<Component *> m_components;
 
     public:
-        // Called in update pass
+        // Called in update pass, delegates to update pass in the components
         void Update();
 
-        // Called in render pass
+        // Called in render pass, delegates to render pass in the components
         void Render();
 
         // Deletes all components on destructor

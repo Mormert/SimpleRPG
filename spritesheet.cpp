@@ -19,7 +19,6 @@ namespace rpg
 
     const Texture2D &Spritesheet::GetTexture(std::string textureName)
     {
-        std::cout << "Getting texture with id: " << map.at(textureName).id << '\n';
         return map.at(textureName);
     }
 
