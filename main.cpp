@@ -7,7 +7,7 @@
 #include "constants.hpp"
 #include "spritesheet.hpp"
 #include "object.hpp"
-
+#include "scene_loader.hpp"
 #include "testobject.hpp"
 
 #include "component.hpp"
@@ -59,26 +59,26 @@ int main()
 
     rpg::ObjectManager objectManager;
 
-    rpg::TestObject *t{new rpg::TestObject{700, 400}};
+    // rpg::TestObject *t{new rpg::TestObject{700, 400}};
 
-    objectManager.AddObject(t);
+    // objectManager.AddObject(t);
 
 
-    for (int i = 0; i < 60; i += 1)
-    {
-        for (int j = 0; j < 60; j += 1)
-        {
-            objectManager.AddObject(new rpg::TestObject{i*16, j*16});
-        }
-    }
+    // for (int i = 0; i < 60; i += 1)
+    // {
+    //     for (int j = 0; j < 60; j += 1)
+    //     {
+    //         objectManager.AddObject(new rpg::TestObject{i*16, j*16});
+    //     }
+    // }
 
-    objectManager.AddObject(new rpg::TestObject{750, 400});
-    objectManager.AddObject(new rpg::TestObject{800, 400});
-    objectManager.AddObject(new rpg::TestObject{850, 400});
-    objectManager.AddObject(new rpg::TestObject{900, 400});
-    objectManager.AddObject(new rpg::TestObject{1000, 400});
-    objectManager.AddObject(new rpg::TestObject{950, 400});
-    objectManager.RemoveObject(t);
+    // objectManager.AddObject(new rpg::TestObject{1000, 400});
+    // objectManager.AddObject(new rpg::TestObject{950, 400});
+    // objectManager.RemoveObject(t);
+
+
+    rpg::SceneLoader("assets/level.scene", objectManager);
+
 
     //rpg::TestObject myTestObject;
 

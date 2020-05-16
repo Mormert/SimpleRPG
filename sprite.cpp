@@ -7,11 +7,12 @@
 namespace rpg
 {
 
-    Sprite::Sprite(const Texture2D& texture, float x, float y,
-                   float width, float heigth,
-                   Vector2 origin) : m_spriteRectangle{x, y, width, heigth},
-                                     m_spriteSheetTexture{texture},
-                                     m_spriteOrigin{origin}
+    Sprite::Sprite(const Texture2D &texture, int x, int y,
+                   int width, int heigth,
+                   Vector2 origin) : m_spriteRectangle{
+                                         static_cast<float>(x), static_cast<float>(y),
+                                         static_cast<float>(width), static_cast<float>(heigth)},
+                                     m_spriteSheetTexture{texture}, m_spriteOrigin{origin}
     {
     }
 
@@ -20,7 +21,6 @@ namespace rpg
     {
         Rectangle destinationRectangle{static_cast<float>(x), static_cast<float>(y),
                                        m_spriteRectangle.width, m_spriteRectangle.height};
-
 
         // TODO : Frustum culling
         DrawTexturePro(m_spriteSheetTexture, m_spriteRectangle, destinationRectangle,

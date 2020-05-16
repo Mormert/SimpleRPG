@@ -9,7 +9,7 @@ namespace rpg
     class TestObject : public Object
     {
     public:
-        TestObject(int x, int y);
+        TestObject(int x, int y, int spriteX, int spriteY, int spriteWidth, int spriteHeight, std::string texturePath);
     };
 
 } // namespace rpg
