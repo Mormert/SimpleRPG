@@ -20,6 +20,7 @@ namespace rpg
 
         void AddObject(Object *object);
 
+        // Also deletes the object by pointer
         void RemoveObject(Object *object);
 
         ~ObjectManager();

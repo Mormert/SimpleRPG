@@ -21,6 +21,8 @@ namespace rpg
         Rectangle destinationRectangle{static_cast<float>(x), static_cast<float>(y),
                                        m_spriteRectangle.width, m_spriteRectangle.height};
 
+
+        // TODO : Frustum culling
         DrawTexturePro(m_spriteSheetTexture, m_spriteRectangle, destinationRectangle,
                        m_spriteOrigin, rotation, color);
     }

@@ -29,6 +29,7 @@ namespace rpg
     void ObjectManager::RemoveObject(Object *object)
     {
         m_objects.erase(std::remove(m_objects.begin(), m_objects.end(), object), m_objects.end());
+        delete object;
     }
 
     ObjectManager::~ObjectManager()

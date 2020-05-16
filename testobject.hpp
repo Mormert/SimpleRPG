@@ -9,7 +9,7 @@ namespace rpg
     class TestObject : public Object
     {
     public:
-        TestObject();
+        TestObject(int x, int y);
     };
 
 } // namespace rpg

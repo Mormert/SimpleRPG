@@ -5,9 +5,9 @@
 namespace rpg
 {
 
-    TestObject::TestObject()
+    TestObject::TestObject(int x, int y)
     {
-        AddComponent(new rpg::Transform{400, 400});
+        AddComponent(new rpg::Transform{x, y});
         AddComponent(new rpg::SpriteRenderer{GetComponent<rpg::Transform>()});
 
         GetComponent<rpg::SpriteRenderer>()->AddSprite(new rpg::Sprite{
