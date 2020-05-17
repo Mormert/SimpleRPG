@@ -11,20 +11,14 @@ namespace rpg
 
     SceneLoader::SceneLoader(std::string sceneFileName, ObjectManager &objectManager)
     {
-        std::ifstream fin(sceneFileName);
+        std::ifstream fileIn(sceneFileName);
 
-        int id;
-        while (fin >> id)
+        std::string object;
+        while (fileIn >> object)
         {
-            switch (id)
-            {
-            case 0:
-                int x, y, sx, sy, sw, sh;
-                std::string path;
-                fin >> x >> y >> sx >> sy >> sw >> sh >> path;
-                objectManager.AddObject(new TestObject{x, y, sx, sy, sw, sh, path});
-                break;
-            }
+            Object *newObject = ObjectFactory::CreateInstance(object);
+            newObject->ObjectInitFromFile(fileIn);
+            objectManager.AddObject(newObject);
         }
     }
 

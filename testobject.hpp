@@ -8,14 +8,17 @@ namespace rpg
 {
     class TestObject : public Object
     {
+    private:
+        void AddComponents(int x, int y, int spriteX, int spriteY, int spriteWidth, int spriteHeight, std::string texturePath);
+
     public:
-        TestObject(int x, int y, int spriteX, int spriteY, int spriteWidth, int spriteHeight, std::string texturePath);
         TestObject();
+        TestObject(int x, int y, int spriteX, int spriteY, int spriteWidth, int spriteHeight, std::string texturePath);
+        virtual void ObjectInitFromFile(std::ifstream &fileIn) override;
 
     private:
         REGISTER_DEC_TYPE(TestObject);
     };
-
 
 } // namespace rpg
 

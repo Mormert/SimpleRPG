@@ -11,11 +11,11 @@
     DerivedRegister<NAME> NAME::reg(#NAME)
 // Replaces: DerivedRegister<TestObject> TestObject::reg("TestObject");
 
-
 #include "component.hpp"
 
 #include <vector>
 #include <map>
+#include <fstream>
 
 namespace rpg
 {
@@ -47,6 +47,8 @@ namespace rpg
         // does not have any component of the type T
         template <typename T>
         T *GetComponent();
+
+        virtual void ObjectInitFromFile(std::ifstream &fileIn);
     };
 
     template <typename T>

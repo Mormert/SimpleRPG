@@ -29,6 +29,8 @@ namespace rpg
         }
     }
 
+    void Object::ObjectInitFromFile(std::ifstream &fileIn) {}
+
     Object *ObjectFactory::CreateInstance(std::string const &s)
     {
         map_type::iterator it = GetMap()->find(s);

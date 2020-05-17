@@ -13,8 +13,6 @@
 #include "component.hpp"
 #include "components_list"
 
-
-
 // Renders the main rendering texture to the screen
 // Used in main render loop, after texture mode render
 static void RenderMainRenderingTexture(RenderTexture2D &renderTexture, float zoom, int screenHeight, int screenWidth)
@@ -57,17 +55,11 @@ int main()
 
     // END SETUP -------------------------------------------------------------------------------------
 
-    rpg::ObjectManager objectManager;
-
-
-    rpg::ObjectFactory::CreateInstance("TestObject");
-
     //objectManager.AddObject()
 
     // rpg::TestObject *t{new rpg::TestObject{700, 400}};
 
     // objectManager.AddObject(t);
-
 
     // for (int i = 0; i < 60; i += 1)
     // {
@@ -81,9 +73,10 @@ int main()
     // objectManager.AddObject(new rpg::TestObject{950, 400});
     // objectManager.RemoveObject(t);
 
+    rpg::ObjectManager objectManager;
+    objectManager.AddObject(new rpg::TestObject{200, 200, 0, 0, 256, 256, "assets/tilesetA.png"});
 
     rpg::SceneLoader("assets/level.scene", objectManager);
-
 
     //rpg::TestObject myTestObject;
 
@@ -137,7 +130,7 @@ int main()
 
         // BEGIN GUI DRAW -----------------------------------------------------------------------------
         DrawText("This is a GUI element", 200, 200, 20, RED);
-        DrawFPS(10,10);
+        DrawFPS(10, 10);
         // END GUI DRAW -------------------------------------------------------------------------------
 
         EndDrawing();
