@@ -29,4 +29,23 @@ namespace rpg
         }
     }
 
+    Object *ObjectFactory::CreateInstance(std::string const &s)
+    {
+        map_type::iterator it = GetMap()->find(s);
+        if (it == GetMap()->end())
+            return 0;
+        return it->second();
+    }
+
+    map_type *ObjectFactory::GetMap()
+    {
+        if (!map)
+        {
+            map = new map_type;
+        }
+        return map;
+    }
+
+    map_type *ObjectFactory::map{nullptr};
+
 } // namespace rpg

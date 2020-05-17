@@ -59,6 +59,11 @@ int main()
 
     rpg::ObjectManager objectManager;
 
+
+    rpg::ObjectFactory::CreateInstance("TestObject");
+
+    //objectManager.AddObject()
+
     // rpg::TestObject *t{new rpg::TestObject{700, 400}};
 
     // objectManager.AddObject(t);

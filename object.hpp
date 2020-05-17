@@ -4,6 +4,7 @@
 #include "component.hpp"
 
 #include <vector>
+#include <map>
 
 namespace rpg
 {
@@ -36,6 +37,37 @@ namespace rpg
         template <typename T>
         T *GetComponent();
     };
+
+    template <typename T>
+    Object *CreateType()
+    {
+        return new T;
+    };
+
+    typedef std::map<std::string, Object *(*)()> map_type;
+
+    class ObjectFactory
+    {
+    public:
+        static Object *CreateInstance(std::string const &s);
+
+    protected:
+        static map_type *GetMap();
+
+    private:
+        static map_type *map;
+    };
+
+    template <typename T>
+    class DerivedRegister : public ObjectFactory
+    {
+    public:
+        DerivedRegister(std::string const &s)
+        {
+            GetMap()->insert(std::make_pair(s, &CreateType<T>));
+        }
+    };
+
 } // namespace rpg
 
 #include "object.inl"

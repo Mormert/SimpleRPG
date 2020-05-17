@@ -1,6 +1,7 @@
 #include "testobject.hpp"
 
 #include "spritesheet.hpp"
+#include "object.hpp"
 
 namespace rpg
 {
@@ -13,5 +14,12 @@ namespace rpg
         GetComponent<rpg::SpriteRenderer>()->AddSprite(new rpg::Sprite{
             rpg::Spritesheet::GetTexture(texturePath.c_str()), spriteX, spriteY, spriteWidth, spriteHeight});
     }
+
+    TestObject::TestObject()
+    {
+        std::cout << "Created test obj\n";
+    }
+
+    DerivedRegister<TestObject> TestObject::reg("TestObject");
 
 } // namespace rpg

@@ -10,7 +10,12 @@ namespace rpg
     {
     public:
         TestObject(int x, int y, int spriteX, int spriteY, int spriteWidth, int spriteHeight, std::string texturePath);
+        TestObject();
+
+    private:
+        static DerivedRegister<TestObject> reg;
     };
+
 
 } // namespace rpg
 
