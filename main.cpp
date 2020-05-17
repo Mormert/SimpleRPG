@@ -74,7 +74,7 @@ int main()
     // objectManager.RemoveObject(t);
 
     rpg::ObjectManager objectManager;
-    objectManager.AddObject(new rpg::TestObject{200, 200, 0, 0, 256, 256, "assets/tilesetA.png"});
+    //objectManager.AddObject(new rpg::TestObject{200, 200, 0, 0, 256, 256, "assets/tilesetA.png"});
 
     rpg::SceneLoader("assets/level.scene", objectManager);
 

@@ -16,9 +16,25 @@ namespace rpg
         std::string object;
         while (fileIn >> object)
         {
-            Object *newObject = ObjectFactory::CreateInstance(object);
-            newObject->ObjectInitFromFile(fileIn);
-            objectManager.AddObject(newObject);
+            if (object.at(0) == '#')
+            {
+                // If this line is a comment (starting with #), skip it
+                std::getline(fileIn, object);
+            }
+            else
+            {
+                try
+                {
+                    Object *newObject = ObjectFactory::CreateInstance(object);
+                    newObject->ObjectInitFromFile(fileIn);
+                    objectManager.AddObject(newObject);
+                }
+                catch (std::exception &e)
+                {
+                    std::cerr << e.what() << " Exiting!" << std::endl;
+                    exit(1);
+                }
+            }
         }
     }
 

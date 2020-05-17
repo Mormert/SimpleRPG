@@ -35,7 +35,11 @@ namespace rpg
     {
         map_type::iterator it = GetMap()->find(s);
         if (it == GetMap()->end())
+        {
+            throw std::exception("Corrupted scene!");
             return 0;
+        }
+
         return it->second();
     }
 
