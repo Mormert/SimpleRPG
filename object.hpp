@@ -1,5 +1,16 @@
+
+
 #ifndef OBJECT_HPP
 #define OBJECT_HPP
+
+#define REGISTER_DEC_TYPE(NAME) \
+    static DerivedRegister<NAME> reg
+// Replaces: static DerivedRegister<TestObject> reg;
+
+#define REGISTER_DEF_TYPE(NAME) \
+    DerivedRegister<NAME> NAME::reg(#NAME)
+// Replaces: DerivedRegister<TestObject> TestObject::reg("TestObject");
+
 
 #include "component.hpp"
 

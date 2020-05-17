@@ -20,6 +20,6 @@ namespace rpg
         std::cout << "Created test obj\n";
     }
 
-    DerivedRegister<TestObject> TestObject::reg("TestObject");
+    REGISTER_DEF_TYPE(TestObject);
 
 } // namespace rpg

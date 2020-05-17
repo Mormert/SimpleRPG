@@ -13,7 +13,7 @@ namespace rpg
         TestObject();
 
     private:
-        static DerivedRegister<TestObject> reg;
+        REGISTER_DEC_TYPE(TestObject);
     };
 
 
