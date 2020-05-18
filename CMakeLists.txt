@@ -41,6 +41,7 @@ endif()
 
 include_directories("${CMAKE_SOURCE_DIR}/src/engine"
     "${CMAKE_SOURCE_DIR}/src/engine/default_components"
+    "${CMAKE_SOURCE_DIR}/src/game/"
     "${CMAKE_SOURCE_DIR}/src/game/components"
     "${CMAKE_SOURCE_DIR}/src/game/objects")
 
