@@ -1,6 +1,6 @@
 #include "transform.hpp"
 
-namespace rpg
+namespace rpg::components
 {
 
     Transform::Transform()

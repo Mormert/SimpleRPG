@@ -2,8 +2,9 @@
 
 #include "spritesheet.hpp"
 #include "object.hpp"
+#include "components_list.hpp"
 
-namespace rpg
+namespace rpg::objects
 {
 
     TestObject::TestObject(int x, int y, int spriteX, int spriteY, int spriteWidth, int spriteHeight, std::string texturePath)
@@ -23,10 +24,10 @@ namespace rpg
 
     void TestObject::AddComponents(int x, int y, int spriteX, int spriteY, int spriteWidth, int spriteHeight, std::string texturePath)
     {
-        AddComponent(new rpg::Transform{x, y});
-        AddComponent(new rpg::SpriteRenderer{GetComponent<rpg::Transform>()});
+        AddComponent(new rpg::components::Transform{x, y});
+        AddComponent(new rpg::components::SpriteRenderer{GetComponent<rpg::components::Transform>()});
 
-        GetComponent<rpg::SpriteRenderer>()->AddSprite(new rpg::Sprite{
+        GetComponent<rpg::components::SpriteRenderer>()->AddSprite(new rpg::Sprite{
             rpg::Spritesheet::GetTexture(texturePath.c_str()), spriteX, spriteY, spriteWidth, spriteHeight});
     }
 

@@ -35,17 +35,26 @@ endif()
 
 # This is the main part:
 
+# file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*/*.cpp" "src/*/*.hpp")
+
+# add_executable(${PROJECT_NAME} ${SOURCES})
+
+include_directories("${CMAKE_SOURCE_DIR}/src/engine"
+    "${CMAKE_SOURCE_DIR}/src/engine/default_components"
+    "${CMAKE_SOURCE_DIR}/src/game/components"
+    "${CMAKE_SOURCE_DIR}/src/game/objects")
+
 add_executable(${PROJECT_NAME}
-    main.cpp
-    object.cpp
-    component.cpp
-    spritesheet.cpp
-    sprite.cpp
-    object_manager.cpp
-    sprite_renderer.cpp
-    transform.cpp
-    testobject.cpp
-    scene_loader.cpp
+    "src/engine/engine.cpp"
+    "src/engine/object.cpp"
+    "src/engine/component.cpp"
+    "src/engine/spritesheet.cpp"
+    "src/engine/sprite.cpp"
+    "src/engine/object_manager.cpp"
+    "src/engine/scene_loader.cpp"
+    "src/engine/default_components/sprite_renderer.cpp"
+    "src/engine/default_components/transform.cpp"
+    "src/game/objects/testobject.cpp"
 )
 
 #set(raylib_VERBOSE 1)

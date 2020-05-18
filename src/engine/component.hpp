@@ -1,7 +1,7 @@
 #ifndef COMPONENT_HPP
 #define COMPONENT_HPP
 
-namespace rpg
+namespace rpg::components
 {
 
     class Component

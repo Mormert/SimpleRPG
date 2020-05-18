@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace rpg
+namespace rpg::components
 {
 
     void Component::Update(){};

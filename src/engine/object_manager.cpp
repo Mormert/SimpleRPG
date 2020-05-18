@@ -21,12 +21,12 @@ namespace rpg
         }
     }
 
-    void ObjectManager::AddObject(Object *object)
+    void ObjectManager::AddObject(objects::Object *object)
     {
         m_objects.push_back(object);
     }
 
-    void ObjectManager::RemoveObject(Object *object)
+    void ObjectManager::RemoveObject(objects::Object *object)
     {
         m_objects.erase(std::remove(m_objects.begin(), m_objects.end(), object), m_objects.end());
         delete object;

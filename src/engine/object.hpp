@@ -1,5 +1,3 @@
-
-
 #ifndef OBJECT_HPP
 #define OBJECT_HPP
 
@@ -17,13 +15,13 @@
 #include <map>
 #include <fstream>
 
-namespace rpg
+namespace rpg::objects
 {
     // Base class for all objects
     class Object
     {
     private:
-        std::vector<Component *> m_components;
+        std::vector<components::Component *> m_components;
 
     public:
         // Called in update pass, delegates to update pass in the components

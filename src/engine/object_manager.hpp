@@ -10,7 +10,7 @@ namespace rpg
     {
 
     private:
-        std::vector<Object *> m_objects;
+        std::vector<objects::Object *> m_objects;
 
     public:
 
@@ -18,10 +18,10 @@ namespace rpg
 
         void Render();
 
-        void AddObject(Object *object);
+        void AddObject(objects::Object *object);
 
         // Also deletes the object by pointer
-        void RemoveObject(Object *object);
+        void RemoveObject(objects::Object *object);
 
         ~ObjectManager();
 

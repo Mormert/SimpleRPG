@@ -1,6 +1,6 @@
 #include "sprite_renderer.hpp"
 
-namespace rpg
+namespace rpg::components
 {
 
     SpriteRenderer::SpriteRenderer(Transform *transform) : m_transform{*transform} {}

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <typeinfo>
 
-namespace rpg
+namespace rpg::objects
 {
     // Note that Components should be allocated by the "new" keyword
     // They should not consist within local scopes

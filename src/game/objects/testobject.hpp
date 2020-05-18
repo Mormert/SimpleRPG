@@ -2,9 +2,8 @@
 #define TESTOBJECT_HPP
 
 #include "object.hpp"
-#include "components_list"
 
-namespace rpg
+namespace rpg::objects
 {
     class TestObject : public Object
     {

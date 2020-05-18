@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-namespace rpg
+namespace rpg::components
 {
 
     class TestComponent : public Component

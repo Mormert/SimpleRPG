@@ -1,4 +1,0 @@
-#include "testcomponent.hpp"
-#include "transform.hpp"
-#include "sprite_renderer.hpp"
-#include "sprite.hpp"

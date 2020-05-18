@@ -1,17 +1,20 @@
-#include <iostream>
-#include <algorithm>
 
-#include <raylib.h>
+
+
 
 #include "object_manager.hpp"
 #include "constants.hpp"
 #include "spritesheet.hpp"
 #include "object.hpp"
 #include "scene_loader.hpp"
-#include "testobject.hpp"
 
 #include "component.hpp"
-#include "components_list"
+#include "default_components/default_components_list.hpp"
+
+#include <raylib.h>
+
+#include <iostream>
+#include <algorithm>
 
 // Renders the main rendering texture to the screen
 // Used in main render loop, after texture mode render
@@ -57,8 +60,6 @@ int main()
 
     rpg::ObjectManager objectManager;
     rpg::SceneLoader("assets/level.scene", objectManager);
-
-    //rpg::TestObject myTestObject;
 
     SetTargetFPS(constants::targetFps);
 

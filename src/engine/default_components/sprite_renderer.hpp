@@ -1,13 +1,13 @@
 #ifndef SPRITE_RENDERER_HPP
 #define SPRITE_RENDERER_HPP
 
-#include "component.hpp"
-#include "sprite.hpp"
+#include "../component.hpp"
+#include "../sprite.hpp"
 #include "transform.hpp"
 
 #include <vector>
 
-namespace rpg
+namespace rpg::components
 {
     class SpriteRenderer : public Component
     {
@@ -17,7 +17,7 @@ namespace rpg
 
         // A SpriteRenderer component requieres a Transform component
         // And it should of course be from the same object
-        rpg::Transform &m_transform;
+        rpg::components::Transform &m_transform;
 
     public:
         SpriteRenderer(Transform *transform);

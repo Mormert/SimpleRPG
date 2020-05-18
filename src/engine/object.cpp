@@ -1,6 +1,6 @@
 #include "object.hpp"
 
-namespace rpg
+namespace rpg::objects
 {
     // Called in update pass
     void Object::Update()
