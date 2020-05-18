@@ -15,11 +15,9 @@ namespace rpg
 
     void TestObject::ObjectInitFromFile(std::ifstream &fileIn)
     {
-        std::cout << "objectinit\n";
-        int x, y, spriteX, spriteY, spriteWidth, spriteHeight;
         std::string texturePath;
-        fileIn >> x >> y >> spriteX >> spriteY >> spriteWidth >> spriteHeight;
-        fileIn >> texturePath;
+        int x, y, spriteX, spriteY, spriteWidth, spriteHeight;
+        fileIn >> x >> y >> spriteX >> spriteY >> spriteWidth >> spriteHeight >> texturePath;
         AddComponents(x, y, spriteX, spriteY, spriteWidth, spriteHeight, texturePath);
     }
 

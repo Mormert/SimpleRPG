@@ -5,7 +5,6 @@
 namespace rpg
 {
 
-    //void Component::Begin(){};
     void Component::Update(){};
     void Component::Render(){};
 

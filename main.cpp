@@ -55,27 +55,7 @@ int main()
 
     // END SETUP -------------------------------------------------------------------------------------
 
-    //objectManager.AddObject()
-
-    // rpg::TestObject *t{new rpg::TestObject{700, 400}};
-
-    // objectManager.AddObject(t);
-
-    // for (int i = 0; i < 60; i += 1)
-    // {
-    //     for (int j = 0; j < 60; j += 1)
-    //     {
-    //         objectManager.AddObject(new rpg::TestObject{i*16, j*16});
-    //     }
-    // }
-
-    // objectManager.AddObject(new rpg::TestObject{1000, 400});
-    // objectManager.AddObject(new rpg::TestObject{950, 400});
-    // objectManager.RemoveObject(t);
-
     rpg::ObjectManager objectManager;
-    //objectManager.AddObject(new rpg::TestObject{200, 200, 0, 0, 256, 256, "assets/tilesetA.png"});
-
     rpg::SceneLoader("assets/level.scene", objectManager);
 
     //rpg::TestObject myTestObject;
@@ -98,9 +78,7 @@ int main()
         screenZoomScroll += GetMouseWheelMove() * constants::scrollSpeed;
         screenZoomScroll = std::clamp(screenZoomScroll, 0.0f, 1.0f);
 
-        // OBJECT TEST UPDATE >>
         objectManager.Update();
-        // <<
 
         // END UPDATE ---------------------------------------------------------------------------------
 
@@ -109,12 +87,7 @@ int main()
 
         ClearBackground(GRAY);
 
-        // OBJECT TEST RENDER >>
         objectManager.Render();
-        // <<
-
-        //mySprite.DrawSprite(screenWidth / 2, screenHeight / 2);
-        //mySprite2.DrawSprite(screenWidth / 2 + 100, screenHeight / 2);
 
         EndTextureMode();
 

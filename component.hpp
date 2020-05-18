@@ -7,7 +7,6 @@ namespace rpg
     class Component
     {
     public:
-        //virtual void Begin();
         virtual void Update();
         virtual void Render();
 

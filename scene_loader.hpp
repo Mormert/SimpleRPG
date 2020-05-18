@@ -10,6 +10,7 @@ namespace rpg
     class SceneLoader
     {
     public:
+        // Loads a scene from a file (name.scene), and puts the objects in the objectManager
         SceneLoader(std::string sceneFileName, ObjectManager &objectManager);
     };
 
