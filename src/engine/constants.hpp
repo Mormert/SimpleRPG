@@ -2,7 +2,8 @@
 
 namespace constants
 {
-    constexpr char *windowTitle{"CppRpgGame"};
+    constexpr char *windowTitle{"SimpleRPG"};
+    constexpr char *fileLoadPath("assets/level.scene");
     constexpr int targetFps{60};
 
     constexpr int defaultScreenWidth{1280};

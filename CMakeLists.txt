@@ -48,6 +48,7 @@ include_directories("${CMAKE_SOURCE_DIR}/src/engine"
 add_executable(${PROJECT_NAME}
     "src/engine/engine.cpp"
     "src/engine/object.cpp"
+    "src/engine/camera.cpp"
     "src/engine/component.cpp"
     "src/engine/spritesheet.cpp"
     "src/engine/sprite.cpp"
