@@ -19,10 +19,6 @@ int main()
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, constants::windowTitle);
 
-    // TODO: implement as object to be loaded in .scene file
-    rpg::Spritesheet::AddTexture("assets/tilesetA.png");
-    rpg::Spritesheet::AddTexture("assets/tilesetB.png");
-
     // END SETUP -------------------------------------------------------------------------------------
 
     rpg::Camera::SetZoom(1.0f);
@@ -73,7 +69,7 @@ int main()
 
     // DE-INITIALIZATION-------------------------------------------------------------------------------
 
-    rpg::Spritesheet::UnloadSpritesheet();
+    rpg::objects::SpriteSheet::UnloadSpriteSheet();
 
     CloseWindow();
     // END DE-INITIALIZATION---------------------------------------------------------------------------

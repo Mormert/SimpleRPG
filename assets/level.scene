@@ -1,6 +1,5 @@
-# this is a comment
-TestObject -128 -128 0 0 256 256 assets/tilesetA.png
-TestObject 400 800 0 0 256 256 assets/tilesetA.png
-#this is also a very long comment
-TestObject 135 673 0 0 256 256 assets/tilesetA.png
-TestObject 135 673 0 0 256 256 assets/tilesetA.png
+# This is a comment
+SpriteSheet assets/tilesetA.png
+SpriteSheet assets/tilesetB.png
+TestObject -256 -128 0 0 256 256 assets/tilesetB.png
+TestObject 0 -128 0 0 256 256 assets/tilesetA.png

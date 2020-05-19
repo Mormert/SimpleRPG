@@ -28,7 +28,7 @@ namespace rpg::objects
         AddComponent(new rpg::components::SpriteRenderer{GetComponent<rpg::components::Transform>()});
 
         GetComponent<rpg::components::SpriteRenderer>()->AddSprite(new rpg::Sprite{
-            rpg::Spritesheet::GetTexture(texturePath.c_str()), spriteX, spriteY, spriteWidth, spriteHeight});
+            rpg::objects::SpriteSheet::GetTexture(texturePath.c_str()), spriteX, spriteY, spriteWidth, spriteHeight});
     }
 
     REGISTER_DEF_TYPE(TestObject);

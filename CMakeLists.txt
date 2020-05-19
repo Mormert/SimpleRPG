@@ -41,6 +41,7 @@ endif()
 
 include_directories("${CMAKE_SOURCE_DIR}/src/engine"
     "${CMAKE_SOURCE_DIR}/src/engine/default_components"
+    "${CMAKE_SOURCE_DIR}/src/engine/default_objects"
     "${CMAKE_SOURCE_DIR}/src/game/"
     "${CMAKE_SOURCE_DIR}/src/game/components"
     "${CMAKE_SOURCE_DIR}/src/game/objects")
@@ -50,12 +51,12 @@ add_executable(${PROJECT_NAME}
     "src/engine/object.cpp"
     "src/engine/camera.cpp"
     "src/engine/component.cpp"
-    "src/engine/spritesheet.cpp"
     "src/engine/sprite.cpp"
     "src/engine/object_manager.cpp"
     "src/engine/scene_loader.cpp"
     "src/engine/default_components/sprite_renderer.cpp"
     "src/engine/default_components/transform.cpp"
+    "src/engine/default_objects/spritesheet.cpp"
     "src/game/objects/testobject.cpp"
 )
 
