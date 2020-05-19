@@ -1,5 +1,5 @@
 # this is a comment
-TestObject 200 400 0 0 256 256 assets/tilesetA.png
+TestObject -128 -128 0 0 256 256 assets/tilesetA.png
 TestObject 400 800 0 0 256 256 assets/tilesetA.png
 #this is also a very long comment
 TestObject 135 673 0 0 256 256 assets/tilesetA.png
