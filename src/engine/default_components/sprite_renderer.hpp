@@ -1,8 +1,8 @@
 #ifndef SPRITE_RENDERER_HPP
 #define SPRITE_RENDERER_HPP
 
-#include "../component.hpp"
-#include "../sprite.hpp"
+#include "component.hpp"
+#include "sprite.hpp"
 #include "transform.hpp"
 
 #include <vector>

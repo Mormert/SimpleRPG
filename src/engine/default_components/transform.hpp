@@ -1,7 +1,7 @@
 #ifndef TRANSFORM_HPP
 #define TRANSFORM_HPP
 
-#include "../component.hpp"
+#include "component.hpp"
 
 namespace rpg::components
 {
