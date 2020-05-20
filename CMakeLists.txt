@@ -60,6 +60,7 @@ add_executable(${PROJECT_NAME}
     "src/engine/default_objects/spritesheet.cpp"
     "src/game/components/comp_player_controller.cpp"
     "src/game/components/comp_top_down_controller.cpp"
+    "src/game/components/comp_cam_transform.cpp"
     "src/game/objects/testobject.cpp"
     "src/game/objects/obj_player.cpp"
 )

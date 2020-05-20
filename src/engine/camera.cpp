@@ -7,8 +7,6 @@ namespace rpg
 
     Camera2D Camera::m_camera{0};
 
-    int Camera::m_offsetX{0};
-    int Camera::m_offsetY{0};
     void Camera::SetRotation(float rotation)
     {
         m_camera.rotation = rotation;
@@ -24,20 +22,24 @@ namespace rpg
         m_camera.zoom = zoom;
     }
 
+    float Camera::GetZoom()
+    {
+        return m_camera.zoom;
+    }
+
     void Camera::SetTarget(int x, int y)
     {
-        m_camera.target = Vector2{static_cast<float>(x + m_offsetX), static_cast<float>(y + m_offsetY)};
+        m_camera.target = Vector2{static_cast<float>(x), static_cast<float>(y)};
     }
 
     void Camera::SetTarget(float x, float y)
     {
-        m_camera.target = Vector2{x + m_offsetX, y + m_offsetY};
+        m_camera.target = Vector2{x, y};
     }
 
     void Camera::SetOffset(int x, int y)
     {
-        m_offsetX = -x;
-        m_offsetY = -y;
+        m_camera.offset = Vector2{static_cast<float>(x), static_cast<float>(y)};
     }
 
     Vector2 Camera::GetTarget()

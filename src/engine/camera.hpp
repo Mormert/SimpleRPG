@@ -9,8 +9,6 @@ namespace rpg
     {
     private:
         static Camera2D m_camera;
-        static int m_offsetX;
-        static int m_offsetY;
 
     public:
         static void SetRotation(float rotation);
