@@ -19,12 +19,7 @@ int main()
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, constants::windowTitle);
 
-    // END SETUP -------------------------------------------------------------------------------------
-
-    rpg::Camera::SetZoom(1.0f);
-    rpg::Camera::SetOffset(screenWidth / 2, screenHeight / 2);
-    rpg::Camera::SetTarget(0.0f, 0.0f);
-    
+    // END SETUP -------------------------------------------------------------------------------------    
 
     rpg::ObjectManager objectManager;
     rpg::SceneLoader(constants::fileLoadPath, objectManager);
@@ -36,13 +31,6 @@ int main()
     {
 
         // UPDATE ------------------------------------------------------------------------------------
-        if (IsWindowResized())
-        {
-            screenWidth = GetScreenWidth();
-            screenHeight = GetScreenHeight();
-            rpg::Camera::SetOffset(screenWidth / 2, screenHeight / 2);
-            rpg::Camera::SetTarget(0.0f, 0.0f);
-        }
 
         objectManager.Update();
 
