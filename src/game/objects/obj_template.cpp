@@ -1,4 +1,4 @@
-#include "object_template.hpp"
+#include "obj_template.hpp"
 
 // Don't forget to add me in CMakeLists.txt!
 

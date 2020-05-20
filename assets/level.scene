@@ -1,5 +1,6 @@
 # This is a comment
 SpriteSheet assets/tilesetA.png
 SpriteSheet assets/tilesetB.png
-TestObject -256 -128 0 0 256 256 assets/tilesetB.png
-TestObject 0 -128 0 0 256 256 assets/tilesetA.png
+#TestObject -256 -128 0 0 256 256 assets/tilesetB.png
+#TestObject 0 -128 0 0 256 256 assets/tilesetA.png
+Player 0 0 64 128 16 16 assets/tilesetA.png 1

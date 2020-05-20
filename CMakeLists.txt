@@ -39,7 +39,8 @@ endif()
 
 # add_executable(${PROJECT_NAME} ${SOURCES})
 
-include_directories("${CMAKE_SOURCE_DIR}/src/engine"
+include_directories(
+    "${CMAKE_SOURCE_DIR}/src/engine"
     "${CMAKE_SOURCE_DIR}/src/engine/default_components"
     "${CMAKE_SOURCE_DIR}/src/engine/default_objects"
     "${CMAKE_SOURCE_DIR}/src/game/"
@@ -57,7 +58,10 @@ add_executable(${PROJECT_NAME}
     "src/engine/default_components/sprite_renderer.cpp"
     "src/engine/default_components/transform.cpp"
     "src/engine/default_objects/spritesheet.cpp"
+    "src/game/components/comp_player_controller.cpp"
+    "src/game/components/comp_top_down_controller.cpp"
     "src/game/objects/testobject.cpp"
+    "src/game/objects/obj_player.cpp"
 )
 
 #set(raylib_VERBOSE 1)
