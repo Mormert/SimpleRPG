@@ -18,8 +18,9 @@ int main()
 
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, constants::windowTitle);
+    SetExitKey(0);
 
-    // END SETUP -------------------------------------------------------------------------------------    
+    // END SETUP -------------------------------------------------------------------------------------
 
     rpg::ObjectManager objectManager;
     rpg::SceneLoader(constants::fileLoadPath, objectManager);
