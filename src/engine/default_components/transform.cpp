@@ -1,5 +1,7 @@
 #include "transform.hpp"
 
+#include <iostream>
+
 namespace rpg::components
 {
 
@@ -12,5 +14,5 @@ namespace rpg::components
         : x{x}, y{y}, scale{scale}, rotation{rotation}
     {
     }
-
-} // namespace rpg
+    
+} // namespace rpg::components
