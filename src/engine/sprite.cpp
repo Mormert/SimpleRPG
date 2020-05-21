@@ -3,6 +3,7 @@
 #include <raylib.h>
 
 #include <iostream>
+#include <cmath>
 
 namespace rpg
 {
@@ -20,11 +21,49 @@ namespace rpg
     void Sprite::DrawSprite(int x, int y, float rotation, Color color)
     {
         Rectangle destinationRectangle{static_cast<float>(x), static_cast<float>(y),
-                                       m_spriteRectangle.width, m_spriteRectangle.height};
+                                       std::abs(m_spriteRectangle.width), std::abs(m_spriteRectangle.height)};
 
         // TODO : Frustum culling
-        DrawTexturePro(m_spriteSheetTexture, m_spriteRectangle, destinationRectangle,
-                       m_spriteOrigin, rotation, color);
+        DrawTexturePro(m_spriteSheetTexture,
+                       Rectangle{m_spriteRectangle.x, m_spriteRectangle.y, m_spriteRectangle.width * m_verticalFlip, m_spriteRectangle.height * m_horizontalFlip},
+                       destinationRectangle,
+                       m_spriteOrigin,
+                       rotation,
+                       color);
+    }
+
+    void Sprite::SetFlipVertical(bool setFlip)
+    {
+        if (setFlip)
+        {
+            m_verticalFlip = -1;
+        }
+        else
+        {
+            m_verticalFlip = 1;
+        }
+    }
+
+    void Sprite::SetFlipHorizontal(bool setFlip)
+    {
+        if (setFlip)
+        {
+            m_horizontalFlip = -1;
+        }
+        else
+        {
+            m_horizontalFlip = 1;
+        }
+    }
+
+    bool Sprite::IsFlippedVertical()
+    {
+        return m_verticalFlip == -1;
+    }
+
+    bool Sprite::IsFlippedHorizontal()
+    {
+        return m_horizontalFlip == -1;
     }
 
     void Sprite::SetOrigin(Vector2 newOrigin)
