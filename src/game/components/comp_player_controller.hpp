@@ -3,6 +3,7 @@
 
 #include "component.hpp"
 #include "comp_top_down_controller.hpp"
+#include "sprite.hpp"
 
 namespace rpg::components
 {
@@ -12,15 +13,16 @@ namespace rpg::components
 
     private:
         TopDownController *m_topDownController;
+        Sprite *m_playerSprite;
         int m_moveSpeed;
 
     public:
-        PlayerController(TopDownController *topDownController);
-        
+        PlayerController(TopDownController *topDownController, Sprite *playerSprite);
+
         void SetMoveSpeed(int speed);
 
         // Handles input
-        void Update() override;
+        virtual void Update() override;
     };
 
 } // namespace rpg::components
