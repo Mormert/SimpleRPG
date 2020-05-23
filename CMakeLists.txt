@@ -55,6 +55,7 @@ add_executable(${PROJECT_NAME}
     "src/engine/sprite.cpp"
     "src/engine/object_manager.cpp"
     "src/engine/scene_loader.cpp"
+    "src/engine/depth_buffer.cpp"
     "src/engine/default_components/sprite_renderer.cpp"
     "src/engine/default_components/transform.cpp"
     "src/engine/default_objects/spritesheet.cpp"

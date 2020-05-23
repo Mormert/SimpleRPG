@@ -14,6 +14,8 @@ namespace rpg
         int_fast8_t m_verticalFlip{1};
         int_fast8_t m_horizontalFlip{1};
 
+        int m_depth{0}; // z depth
+
         Vector2 m_spriteOrigin;
 
     public:
@@ -26,6 +28,10 @@ namespace rpg
 
         // Renders the sprite for 1 frame
         void DrawSprite(int x, int y, float rotation = 0.0f, Color color = WHITE);
+        void DrawSpriteDirect(int x, int y, float rotation = 0.0f, Color color = WHITE); // Does not use buffers and depth
+
+        void SetDepth(int depth);
+        int GetDepth();
 
         void SetFlipVertical(bool setFlip);
         void SetFlipHorizontal(bool setFlip);

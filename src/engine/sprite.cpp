@@ -1,4 +1,5 @@
 #include "sprite.hpp"
+#include "depth_buffer.hpp"
 
 #include <raylib.h>
 
@@ -23,13 +24,35 @@ namespace rpg
         Rectangle destinationRectangle{static_cast<float>(x), static_cast<float>(y),
                                        std::abs(m_spriteRectangle.width), std::abs(m_spriteRectangle.height)};
 
-        // TODO : Frustum culling
+        engine::DepthBuffer::DrawTextureProDepth(m_depth,
+                                                 m_spriteSheetTexture,
+                                                 Rectangle{m_spriteRectangle.x, m_spriteRectangle.y, m_spriteRectangle.width * m_verticalFlip, m_spriteRectangle.height * m_horizontalFlip},
+                                                 destinationRectangle,
+                                                 m_spriteOrigin,
+                                                 rotation,
+                                                 color);
+    }
+
+    void Sprite::DrawSpriteDirect(int x, int y, float rotation, Color color)
+    {
+        Rectangle destinationRectangle{static_cast<float>(x), static_cast<float>(y),
+                                       std::abs(m_spriteRectangle.width), std::abs(m_spriteRectangle.height)};
         DrawTexturePro(m_spriteSheetTexture,
                        Rectangle{m_spriteRectangle.x, m_spriteRectangle.y, m_spriteRectangle.width * m_verticalFlip, m_spriteRectangle.height * m_horizontalFlip},
                        destinationRectangle,
                        m_spriteOrigin,
                        rotation,
                        color);
+    }
+
+    void Sprite::SetDepth(int depth)
+    {
+        m_depth = depth;
+    }
+
+    int Sprite::GetDepth()
+    {
+        return m_depth;
     }
 
     void Sprite::SetFlipVertical(bool setFlip)
@@ -71,9 +94,6 @@ namespace rpg
         m_spriteOrigin = newOrigin;
     }
 
-    Sprite::~Sprite()
-    {
-        std::cout << "Calling ~Sprite()" << std::endl;
-    }
+    Sprite::~Sprite() {}
 
 } // namespace rpg

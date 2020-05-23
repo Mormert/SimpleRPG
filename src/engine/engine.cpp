@@ -2,6 +2,7 @@
 #include "constants.hpp"
 #include "spritesheet.hpp"
 #include "scene_loader.hpp"
+#include "depth_buffer.hpp"
 #include "camera.hpp"
 
 #include <raylib.h>
@@ -45,6 +46,8 @@ int main()
         BeginMode2D(rpg::Camera::GetCameraRef());
 
         objectManager.Render();
+        rpg::engine::DepthBuffer::RenderBuffer();
+        rpg::engine::DepthBuffer::ClearBuffer();
 
         EndMode2D();
 
