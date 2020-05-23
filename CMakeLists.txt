@@ -35,17 +35,17 @@ endif()
 
 # This is the main part:
 
-# file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*/*.cpp" "src/*/*.hpp")
-
-# add_executable(${PROJECT_NAME} ${SOURCES})
-
 include_directories(
     "${CMAKE_SOURCE_DIR}/src/engine"
     "${CMAKE_SOURCE_DIR}/src/engine/default_components"
     "${CMAKE_SOURCE_DIR}/src/engine/default_objects"
     "${CMAKE_SOURCE_DIR}/src/game/"
     "${CMAKE_SOURCE_DIR}/src/game/components"
-    "${CMAKE_SOURCE_DIR}/src/game/objects")
+    "${CMAKE_SOURCE_DIR}/src/game/objects"
+    "${CMAKE_SOURCE_DIR}/src/tools"
+    "${CMAKE_SOURCE_DIR}/src/tools/level_editor"
+    "${CMAKE_SOURCE_DIR}/src/tools/level_editor/components"
+    "${CMAKE_SOURCE_DIR}/src/tools/level_editor/objects")
 
 add_executable(${PROJECT_NAME}
     "src/engine/engine.cpp"
@@ -56,9 +56,12 @@ add_executable(${PROJECT_NAME}
     "src/engine/object_manager.cpp"
     "src/engine/scene_loader.cpp"
     "src/engine/depth_buffer.cpp"
+    "src/engine/utils.cpp"
     "src/engine/default_components/sprite_renderer.cpp"
     "src/engine/default_components/transform.cpp"
     "src/engine/default_objects/spritesheet.cpp"
+    "src/tools/level_editor/objects/obj_level_editor.cpp"
+    "src/tools/level_editor/components/comp_object_placer.cpp"
     "src/game/components/comp_player_controller.cpp"
     "src/game/components/comp_top_down_controller.cpp"
     "src/game/components/comp_cam_transform.cpp"
