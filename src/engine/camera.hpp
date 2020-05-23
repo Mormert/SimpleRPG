@@ -21,6 +21,7 @@ namespace rpg
         static void SetTarget(float x, float y);
 
         static void SetOffset(int x, int y);
+        static Vector2 GetOffset();
 
         static Vector2 GetTarget();
 

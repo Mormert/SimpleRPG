@@ -12,7 +12,6 @@ namespace rpg::objects
     Object &Object::AddComponent(T *component)
     {
         m_components.push_back(component);
-        std::cout << "Adding component" << '\n';
 
         return *this;
     }

@@ -42,6 +42,11 @@ namespace rpg
         m_camera.offset = Vector2{static_cast<float>(x), static_cast<float>(y)};
     }
 
+    Vector2 Camera::GetOffset()
+    {
+        return m_camera.offset;
+    }
+
     Vector2 Camera::GetTarget()
     {
         return m_camera.target;
