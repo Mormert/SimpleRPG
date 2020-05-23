@@ -2,7 +2,9 @@
 
 #include "spritesheet.hpp"
 #include "object.hpp"
-#include "components_list.hpp"
+#include "transform.hpp"
+#include "sprite_renderer.hpp"
+#include "sprite.hpp"
 
 namespace rpg::objects
 {
