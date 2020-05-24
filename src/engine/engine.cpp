@@ -42,7 +42,7 @@ int main()
         // BEGIN SCREEN DRAWING -----------------------------------------------------------------------
         BeginDrawing();
 
-        ClearBackground(WHITE);
+        ClearBackground(rpg::Camera::GetBackgroundColor());
 
         BeginMode2D(rpg::Camera::GetCameraRef());
 

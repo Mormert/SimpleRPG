@@ -9,9 +9,11 @@ namespace rpg
     {
     private:
         static Camera2D m_camera;
+        static Color m_backgroundColor;
 
     public:
-        static void SetRotation(float rotation);
+        static void
+        SetRotation(float rotation);
         static float GetRotation();
 
         static void SetZoom(float zoom);
@@ -24,6 +26,9 @@ namespace rpg
         static Vector2 GetOffset();
 
         static Vector2 GetTarget();
+
+        static void SetBackgroundColor(Color color);
+        static Color &GetBackgroundColor();
 
         static Camera2D &GetCameraRef();
     };

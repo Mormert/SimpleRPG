@@ -6,6 +6,7 @@ namespace rpg
 {
 
     Camera2D Camera::m_camera{0};
+    Color Camera::m_backgroundColor{WHITE};
 
     void Camera::SetRotation(float rotation)
     {
@@ -50,6 +51,16 @@ namespace rpg
     Vector2 Camera::GetTarget()
     {
         return m_camera.target;
+    }
+
+    void Camera::SetBackgroundColor(Color color)
+    {
+        m_backgroundColor = color;
+    }
+
+    Color &Camera::GetBackgroundColor()
+    {
+        return m_backgroundColor;
     }
 
     Camera2D &Camera::GetCameraRef()
