@@ -2,6 +2,7 @@
 #define TOOLS_COMPONENT_OBJECT_PLACER_HPP
 
 #include "component.hpp"
+#include "object.hpp"
 #include "object_manager.hpp"
 
 namespace rpg::components
@@ -10,11 +11,16 @@ namespace rpg::components
     class ObjectPlacer : public Component
     {
     private:
-        ObjectManager m_objectManager;
+        int gridX{16};
+        int gridY{16};
+        ObjectManager *m_objectManager;
+        objects::Object *m_placeableObject; // Needs to be allocated elsewhere
+
     public:
-        ObjectPlacer();
+        ObjectPlacer(ObjectManager* objectManager);
         virtual void Update() override;
-        virtual void Render() override;
+        void QueueObject(objects::Object *object);
+        void DequeueObject();
     };
 
 } // namespace rpg::components

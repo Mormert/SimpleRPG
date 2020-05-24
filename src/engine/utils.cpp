@@ -12,7 +12,7 @@ namespace rpg::utils
     {
 
         int ScreenSpace = GetMouseX();
-        int WorldSpace = ScreenSpace/Camera::GetZoom() - Camera::GetOffset().x/Camera::GetZoom() + Camera::GetTarget().x/Camera::GetZoom();
+        int WorldSpace = static_cast<int>(ScreenSpace / Camera::GetZoom() - Camera::GetOffset().x / Camera::GetZoom() + Camera::GetTarget().x / Camera::GetZoom());
 
         return WorldSpace;
     }
@@ -21,7 +21,7 @@ namespace rpg::utils
     {
 
         int ScreenSpace = GetMouseY();
-        int WorldSpace = ScreenSpace/Camera::GetZoom() - Camera::GetOffset().y/Camera::GetZoom() + Camera::GetTarget().y/Camera::GetZoom();
+        int WorldSpace = static_cast<int>(ScreenSpace / Camera::GetZoom() - Camera::GetOffset().y / Camera::GetZoom() + Camera::GetTarget().y / Camera::GetZoom());
 
         return WorldSpace;
     }

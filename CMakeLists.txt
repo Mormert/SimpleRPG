@@ -62,6 +62,8 @@ add_executable(${PROJECT_NAME}
     "src/engine/default_objects/spritesheet.cpp"
     "src/tools/level_editor/objects/obj_level_editor.cpp"
     "src/tools/level_editor/components/comp_object_placer.cpp"
+    "src/tools/level_editor/components/comp_object_selector.cpp"
+    "src/tools/level_editor/components/comp_level_editor_main.cpp"
     "src/game/components/comp_player_controller.cpp"
     "src/game/components/comp_top_down_controller.cpp"
     "src/game/components/comp_cam_transform.cpp"

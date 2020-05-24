@@ -15,7 +15,7 @@ namespace rpg::objects
 
         return *this;
     }
-    
+
     template <typename T>
     T *Object::GetComponent()
     {
@@ -27,11 +27,12 @@ namespace rpg::objects
             }
         }
 
+        throw std::exception("Could not find component");
         std::cerr << "ERROR: COMPONENT " << typeid(T).name()
                   << " NOT FOUND" << std::endl;
         return nullptr;
     }
 
-} // namespace rpg
+} // namespace rpg::objects
 
 #endif // OBJECT_INL

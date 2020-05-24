@@ -2,6 +2,7 @@
 #define RPG_TOOLS_LEVEL_EDITOR_HPP
 
 #include "object.hpp"
+#include "object_manager.hpp"
 
 namespace rpg::objects
 {
@@ -11,8 +12,8 @@ namespace rpg::objects
         REGISTER_DEC_TYPE(LevelEditor);
 
     public:
-        virtual void ObjectInitFromFile(std::ifstream &fileIn) override;
         LevelEditor();
+        virtual void ObjectInitFromFile(std::ifstream &fileIn) override;
     };
 } // namespace rpg::objects
 
