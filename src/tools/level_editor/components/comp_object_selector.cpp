@@ -8,10 +8,13 @@
 namespace rpg::components
 {
 
-    ObjectSelector::ObjectSelector(ObjectPlacer *objectPlacer)
-        : m_objectPlacer{objectPlacer}
+    ObjectSelector::ObjectSelector(ObjectPlacer *objectPlacer, const std::string &spriteSheetName)
+        : m_objectPlacer{objectPlacer},
+          m_spriteSheetName{spriteSheetName},
+          m_spriteSheetTexture{objects::SpriteSheet::GetTexture(spriteSheetName)},
+          m_gridX{objectPlacer->GetGridSizeX()},
+          m_gridY{objectPlacer->GetGridSizeY()}
     {
-        m_objectPlacer->QueueObject(new rpg::objects::TestObject{0, 0, 64, 128, 32, 32, "assets/tilesetA.png"});
     }
 
     void ObjectSelector::Update()
@@ -20,23 +23,33 @@ namespace rpg::components
         {
             int mx = GetMouseX();
             int my = GetMouseY();
-            if ((mx >= 25 && mx <= (25 + 256)) && (my >= 25 && my <= (25 + 256)))
+            if ((mx >= selectorWindowX && mx <= (selectorWindowX + m_spriteSheetTexture.width)) &&
+                (my >= selectorWindowY && my <= (selectorWindowY + m_spriteSheetTexture.height)))
             {
-                std::cout << "clicked within bounds\n";
-                mx -= 25;
-                my -= 25;
-                mx /= 16;
-                my /= 16;
-                m_objectPlacer->QueueObject(new rpg::objects::TestObject{0, 0, mx * 16, my * 16, 16, 16, "assets/tilesetA.png"});
-                //m_objectPlacer->QueueObject(new rpg::objects::TestObject{0, 0, })
+                mx -= selectorWindowX;
+                my -= selectorWindowY;
+                mx /= m_gridX;
+                my /= m_gridY;
+                m_objectPlacer->QueueObject(new rpg::objects::TestObject{0, 0, mx * m_gridX, my * m_gridY, m_gridX, m_gridY, m_spriteSheetName});
+                // Note that we place the object at (0,0), but this is only a temporary position, later moved by the object placer.
             }
         }
     }
 
     void ObjectSelector::RenderUI()
     {
-        DrawRectangle(20, 20, 256 + 10, 256 + 10, GRAY);
-        DrawTexture(objects::SpriteSheet::GetTexture("assets/tilesetA.png"), 25, 25, WHITE);
-    }
+        DrawRectangle(selectorWindowX - 5, selectorWindowY - 5, m_spriteSheetTexture.width + 10, m_spriteSheetTexture.height + 10, GRAY);
+        DrawRectangleLines(selectorWindowX - 5, selectorWindowY - 5, m_spriteSheetTexture.width + 10, m_spriteSheetTexture.height + 10, BLACK);
 
+        DrawTexture(m_spriteSheetTexture, selectorWindowX, selectorWindowY, WHITE);
+
+        for (int i = 0; i <= m_spriteSheetTexture.width / m_gridY; i++)
+        {
+            DrawLine(selectorWindowX, i * m_gridY + selectorWindowY, m_spriteSheetTexture.height + selectorWindowX, i * m_gridY + selectorWindowY, BLACK);
+        }
+        for (int i = 0; i <= m_spriteSheetTexture.height / m_gridX; i++)
+        {
+            DrawLine(selectorWindowX + i * m_gridX, selectorWindowY, selectorWindowX + i * m_gridX, selectorWindowY + m_spriteSheetTexture.width, BLACK);
+        }
+    }
 } // namespace rpg::components

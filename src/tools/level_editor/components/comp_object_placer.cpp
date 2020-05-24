@@ -4,12 +4,17 @@
 #include "transform.hpp"
 #include "utils.hpp"
 
+#include "comp_level_editor_main.hpp"
+
 #include <raylib.h>
 
 namespace rpg::components
 {
 
-    ObjectPlacer::ObjectPlacer(ObjectManager *objectManager) : m_objectManager{objectManager} {}
+    ObjectPlacer::ObjectPlacer(LevelEditorComp *levelEditor)
+        : m_objectManager{levelEditor->GetObjectManager()},
+          m_gridX{levelEditor->GetGridSizeX()},
+          m_gridY{levelEditor->GetGridSizeY()} {}
 
     void ObjectPlacer::Update()
     {
@@ -22,10 +27,10 @@ namespace rpg::components
             try
             {
                 rpg::components::Transform *transform{m_placeableObject->GetComponent<rpg::components::Transform>()};
-                x /= 16;
-                y /= 16;
-                transform->x = x * 16;
-                transform->y = y * 16;
+                x /= m_gridX;
+                y /= m_gridY;
+                transform->x = x * m_gridX;
+                transform->y = y * m_gridY;
 
                 m_objectManager->AddObject(m_placeableObject);
                 m_placeableObject = nullptr;
@@ -53,6 +58,16 @@ namespace rpg::components
         {
             delete m_placeableObject;
         }
+    }
+
+    const int_fast8_t &ObjectPlacer::GetGridSizeX()
+    {
+        return m_gridX;
+    }
+
+    const int_fast8_t &ObjectPlacer::GetGridSizeY()
+    {
+        return m_gridY;
     }
 
 } // namespace rpg::components

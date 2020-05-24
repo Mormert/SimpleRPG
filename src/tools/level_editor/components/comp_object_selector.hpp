@@ -4,18 +4,28 @@
 #include "component.hpp"
 #include "comp_object_placer.hpp"
 
+#include <raylib.h>
+
+#include <string>
+
 namespace rpg::components
 {
 
     class ObjectSelector : public Component
     {
     private:
-        int gridX{16};
-        int gridY{16};
+        int selectorWindowX{50};
+        int selectorWindowY{50};
+
+        const int_fast8_t &m_gridX; // Reference to grid sizes in LevelEditorComp
+        const int_fast8_t &m_gridY;
+
         ObjectPlacer *m_objectPlacer;
+        std::string m_spriteSheetName;
+        Texture2D m_spriteSheetTexture;
 
     public:
-        ObjectSelector(ObjectPlacer *objectPlacer);
+        ObjectSelector(ObjectPlacer *objectPlacer, const std::string &spriteSheetName);
         virtual void Update() override;
         virtual void RenderUI() override;
     };

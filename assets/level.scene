@@ -4,4 +4,4 @@ SpriteSheet assets/tilesetB.png
 #TestObject 0 0 0 0 256 256 assets/tilesetA.png
 #TestObject 0 -128 0 0 256 256 assets/tilesetA.png
 Player 0 0 64 128 16 16 assets/tilesetA.png 1
-LevelEditor
+LevelEditor assets/tilesetB.png 16 16

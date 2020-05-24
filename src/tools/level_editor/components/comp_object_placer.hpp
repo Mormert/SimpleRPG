@@ -5,20 +5,26 @@
 #include "object.hpp"
 #include "object_manager.hpp"
 
+#include "comp_level_editor_main.hpp"
+
 namespace rpg::components
 {
 
     class ObjectPlacer : public Component
     {
     private:
-        int gridX{16};
-        int gridY{16};
+        const int_fast8_t &m_gridX;
+        const int_fast8_t &m_gridY;
         ObjectManager *m_objectManager;
-        objects::Object *m_placeableObject; // Needs to be allocated elsewhere
+        objects::Object *m_placeableObject{nullptr}; // Gets set when object is "queued"
 
     public:
-        ObjectPlacer(ObjectManager* objectManager);
+        ObjectPlacer(LevelEditorComp *levelEditor);
         virtual void Update() override;
+
+        const int_fast8_t &GetGridSizeX();
+        const int_fast8_t &GetGridSizeY();
+
         void QueueObject(objects::Object *object);
         void DequeueObject();
     };
