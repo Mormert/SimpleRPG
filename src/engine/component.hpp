@@ -9,6 +9,7 @@ namespace rpg::components
     public:
         virtual void Update();
         virtual void Render();
+        virtual void RenderUI();
 
         virtual ~Component();
     };

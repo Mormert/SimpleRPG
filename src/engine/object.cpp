@@ -20,6 +20,15 @@ namespace rpg::objects
         }
     }
 
+    // Called in render ui pass
+    void Object::RenderUI()
+    {
+        for (auto component : m_components)
+        {
+            component->RenderUI();
+        }
+    }
+
     // Frees all components
     Object::~Object()
     {

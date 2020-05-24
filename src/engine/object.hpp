@@ -30,6 +30,9 @@ namespace rpg::objects
         // Called in render pass, delegates to render pass in the components
         void Render();
 
+        // Called in render UI pass, delegates to render pass in the components
+        void RenderUI();
+
         // Deletes all components on destructor
         virtual ~Object();
 

@@ -21,6 +21,14 @@ namespace rpg
         }
     }
 
+    void ObjectManager::RenderUI()
+    {
+        for (auto object : m_objects)
+        {
+            object->RenderUI();
+        }
+    }
+
     void ObjectManager::AddObject(objects::Object *object)
     {
         m_objects.push_back(object);

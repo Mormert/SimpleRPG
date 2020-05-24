@@ -41,7 +41,7 @@ int main()
         // BEGIN SCREEN DRAWING -----------------------------------------------------------------------
         BeginDrawing();
 
-        ClearBackground(GRAY);
+        ClearBackground(WHITE);
 
         BeginMode2D(rpg::Camera::GetCameraRef());
 
@@ -52,7 +52,7 @@ int main()
         EndMode2D();
 
         // BEGIN GUI DRAW -----------------------------------------------------------------------------
-        DrawText("This is a GUI element", 200, 200, 20, RED);
+        objectManager.RenderUI();
         DrawFPS(10, 10);
         // END GUI DRAW -------------------------------------------------------------------------------
 

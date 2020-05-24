@@ -18,6 +18,8 @@ namespace rpg
 
         void Render();
 
+        void RenderUI();
+
         void AddObject(objects::Object *object);
 
         // Also deletes the object by pointer
