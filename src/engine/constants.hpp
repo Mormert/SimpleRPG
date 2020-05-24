@@ -2,7 +2,8 @@
 
 namespace constants
 {
-    constexpr char *windowTitle{"SimpleRPG"};
+    constexpr char *windowTitle{"Simple & Open RPG"};
+    constexpr char *iconFile{"assets/icon.png"};
     constexpr char *fileLoadPath("assets/level.scene");
     constexpr int targetFps{60};
 

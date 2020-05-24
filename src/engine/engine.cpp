@@ -19,6 +19,7 @@ int main()
 
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(screenWidth, screenHeight, constants::windowTitle);
+    SetWindowIcon(LoadImage(constants::iconFile));
     SetExitKey(0);
 
     // END SETUP -------------------------------------------------------------------------------------
