@@ -2,7 +2,7 @@
 # Req. raylib 3.0 to be installed via vcpkg. 2nd alternative is to just run this fetch content CMakeLists.txt.
 
 cmake_minimum_required(VERSION 3.11) # FetchContent is available in 3.11+
-project(cppRpgGame)
+project(SimpleRPG)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -58,8 +58,11 @@ add_executable(${PROJECT_NAME}
     "src/engine/depth_buffer.cpp"
     "src/engine/utils.cpp"
     "src/engine/default_components/sprite_renderer.cpp"
+    "src/engine/default_components/text_renderer.cpp"
+    "src/engine/default_components/text_renderer_UI.cpp"
     "src/engine/default_components/transform.cpp"
     "src/engine/default_objects/spritesheet.cpp"
+    "src/engine/default_objects/error_message.cpp"
     "src/tools/level_editor/objects/obj_level_editor.cpp"
     "src/tools/level_editor/components/comp_object_placer.cpp"
     "src/tools/level_editor/components/comp_object_selector.cpp"
