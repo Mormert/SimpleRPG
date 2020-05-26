@@ -5,6 +5,8 @@
 namespace rpg
 {
 
+    ObjectManager *ObjectManager::m_mainObjectManager{nullptr};
+
     void ObjectManager::Update()
     {
         for (auto object : m_objects)
@@ -38,6 +40,16 @@ namespace rpg
     {
         m_objects.erase(std::remove(m_objects.begin(), m_objects.end(), object), m_objects.end());
         delete object;
+    }
+
+    ObjectManager *ObjectManager::GetMainObjectManager()
+    {
+        return m_mainObjectManager;
+    }
+
+    void ObjectManager::SetMainObjectManager(ObjectManager *objectManager)
+    {
+        m_mainObjectManager = objectManager;
     }
 
     ObjectManager::~ObjectManager()

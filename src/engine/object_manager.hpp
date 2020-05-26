@@ -12,8 +12,9 @@ namespace rpg
     private:
         std::vector<objects::Object *> m_objects;
 
-    public:
+        static ObjectManager *m_mainObjectManager;
 
+    public:
         void Update();
 
         void Render();
@@ -25,7 +26,13 @@ namespace rpg
         // Also deletes the object by pointer
         void RemoveObject(objects::Object *object);
 
-        ~ObjectManager();
+        static ObjectManager *GetMainObjectManager();
 
+        // Be very careful using this method, as it is only intended to be
+        // used by the core engine to set the main object manager. There can,
+        // however, be more than one object manager. (See level editor tool)
+        static void SetMainObjectManager(ObjectManager *objectManager);
+
+        ~ObjectManager();
     };
 } // namespace rpg

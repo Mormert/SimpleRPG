@@ -25,6 +25,7 @@ int main()
     // END SETUP -------------------------------------------------------------------------------------
 
     rpg::ObjectManager objectManager;
+    rpg::ObjectManager::SetMainObjectManager(&objectManager);
     rpg::SceneLoader(constants::fileLoadPath, objectManager);
 
     SetTargetFPS(constants::targetFps);
