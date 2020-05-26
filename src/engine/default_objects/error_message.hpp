@@ -8,17 +8,21 @@
 
 #include <raylib.h>
 
-namespace rpg::objects
+// This object can not be instantiated via file, it is only to be used
+// to show errors to the user
+
+namespace rpg
 {
-    class ErrorMessage : public Object
+    class ErrorMessage : public objects::Object
     {
     private:
         std::string m_message;
 
-    public:
         ErrorMessage(const std::string &message);
-        
+
+    public:
+        static void ThrowMessage(const std::string &message);
     };
-} // namespace rpg::objects
+} // namespace rpg
 
 #endif // ENGINE_DEFAULT_BOJECT_ERROR_MESSAGE_HPP
